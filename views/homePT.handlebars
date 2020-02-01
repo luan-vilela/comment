@@ -1,0 +1,57 @@
+<div class="navbar navbar-expand-sm justify-content-between navbar-dark" style="background-color: #27A745;">
+    <span class="navbar-brand ml-4 mb-0 h1">
+      <i class="fa fa-comments-o fa-lg" aria-hidden="true"></i>
+      Comentar
+    </span>
+
+    <div class="nav-item mr-4">
+      <ul class="navbar-nav text-left mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="">Sobre</a>
+        </li>
+      </ul>
+    </div>
+</div>
+
+
+<div class="container text-center">
+  <div class="time" title="Aguarde o tempo terminar para poder comentar">
+    <h1 class="display-1 my-5" id="time">30</h1>
+  </div>
+
+
+  <div id="commet">
+    <p>{{result.comment}}</p>
+    <div class="flex">
+      <div class="float-left">
+        <a href="" class="mx-3">
+          <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 1 
+        </a>
+        <a href="">
+          <i class="fa fa-thumbs-o-down" aria-hidden="true"></i> 2
+        </a>
+      </div>
+
+      <div class="float-right">
+        <label for="checkWhisper" class="text-muted" style="cursor: pointer;">12 sussurrar</label>
+        <input type="checkbox" id="checkWhisper" style="display: none;" onclick="checkWhisper()">   
+      </div>
+    </div>
+  </div>
+
+
+  <div class="formulario my-5">
+    <form action="/comment" method="POST" id="formComment">
+      <div class="form-group">
+        <textarea name="comment" class="form-control" rows="3"></textarea>
+      </div> 
+      <div class="form-group" >
+        <a id="btnComment" class="btn btn-success btn-lg disabled" role="button" aria-disabled="true" onclick="submit()">Comentar</a>
+      </div>
+    </form>
+  </div>
+
+  <div class="text-muted" style="">
+    © comentar 2020
+  </div>
+</div>

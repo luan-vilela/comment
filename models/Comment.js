@@ -7,9 +7,10 @@ const Comment = new Schema({
         type: String,
         default: "Nothin' On You"
     },
-    ip: String
+    ip: String,
+    whisper: [],
+    like: Number,
+    dislike: Number
 });
-
-
 
 mongoose.model('Comment', Comment);

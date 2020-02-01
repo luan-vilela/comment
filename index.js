@@ -2,6 +2,7 @@ const express = require('express');
 const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const router = require('./router/router');
 const app = express();
 
 
@@ -13,8 +14,6 @@ const DB = 'mongodb://127.0.0.1/database';
 /*  
  *  Configuração
 */
-
-
     // HANDLEBARS
     app.engine('handlebars', handlebars({defaultLayout: 'main'}));
     app.set('view engine', 'handlebars');
@@ -40,31 +39,7 @@ const DB = 'mongodb://127.0.0.1/database';
 /**
  * ROTAS
  */
-
-app.get('/', (req, res) => {
-    res.render('home')
-});
-
-
-app.post('/comment', (req, res) => {
-    
-    let comment = {
-        comment: req.body.comment,
-        ip: req.ip
-    }
-
-    const Comments = require('./models/Comment');
-
-    Comments.save(comment).then((resComment) => {
-        console.log('Comentário salvo', resComment.comment)
-    }).catch((err) => {
-        console.log('Erro: ' + err);
-    })
-
-    
-    app.redirect('/')
-
-});
+    app.use('/', router)
 
 
 

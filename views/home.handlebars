@@ -1,10 +1,10 @@
 <div class="navbar navbar-expand-sm justify-content-between navbar-dark" style="background-color: #27A745;">
-    <span class="navbar-brand mb-0 h1">
-      <i class="fa fa-comments-o" aria-hidden="true"></i>
+    <span class="navbar-brand ml-4 mb-0 h1">
+      <i class="fa fa-comments-o fa-lg" aria-hidden="true"></i>
       Comment
     </span>
 
-    <div class="nav-item">
+    <div class="nav-item mr-4">
       <ul class="navbar-nav text-left mr-auto mt-2 mt-lg-0">
         <li class="nav-item">
           <a class="nav-link" href="">About</a>
@@ -16,25 +16,65 @@
 
 <div class="container text-center">
   <div class="time" title="Aguarde o tempo terminar para poder comentar">
-    <h1 class="display-1 my-5" id="time">5</h1>
+    <h1 class="display-1 my-5" id="time">3</h1>
   </div>
+
 
   <div id="commet">
-    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    <p>{{result.comment}}</p>
+    <div class="flex">
+      <div class="float-left mx-3">
+        <input type="radio" name="like" id="like" value="1" style="display: none;" onclick="btnLike()">
+        <label for="like" id="lblike"  class="text-dark mx-2" style="cursor: pointer;">
+          <i class="fa fa-thumbs-o-up" for="like" aria-hidden="true"></i> 1 
+        </label>
+        <input type="radio" name="like" id="dislike" value="-1" style="display: none;" onclick="btnDisLike()">
+        <label for="dislike" id="lbdislike" class="text-dark" style="cursor: pointer;">
+          <i class="fa fa-thumbs-o-down" aria-hidden="true"></i> 2
+        </label>
+      </div>
+
+      <div class="float-right mx-2">
+        <label for="checkWhisper" class="text-dark" style="cursor: pointer;" title="Open whispers">12 whisper</label>
+        <input type="checkbox" id="checkWhisper" style="display: none;" onclick="checkWhisper()">   
+      </div>
+    </div>
+
+    <div class="card mt-5 text-left" id="allComments" style="display: none;">
+      <span class="text-muted mx-2 my-2">Ver mais 9</span>
+
+      <ul>
+        <li>1: Comentário 1</li>
+        <li>1: Comentário Comentário Comentário Comentário 1</li>
+        <li>1: Comentário Comentário Comentário Comentário Comentário Comentário ComentárioComentárioComentário Comentário Comentário Comentário Comentário Comentário Comentário Comentário 1</li>
+        <li>1: Comentário 1</li>
+        <li>1: Comentário 1</li>
+        <li>1: Comentário 1</li>
+      </ul>
+      
+      <div class="card-footer">
+        <div class="input-group my-0">
+          <input class="form-control" type="text" placeholder=" Add a whisper...">
+        </div>
+      </div>
+      
+    </div>
   </div>
 
-  <div class="formulario my-5">
+
+  <div class="formulario my-3">
     <form action="/comment" method="POST" id="formComment">
       <div class="form-group">
-        <textarea name="commnet" class="form-control" rows="3"></textarea>
+        <textarea name="comment" class="form-control" rows="3"></textarea>
       </div> 
+      
       <div class="form-group" >
         <a id="btnComment" class="btn btn-success btn-lg disabled" role="button" aria-disabled="true" onclick="submit()">Comment</a>
       </div>
     </form>
   </div>
 
-  <div class="text-muted mt-5">
+  <div class="text-muted mt-5" style="">
     © Comment 2020
   </div>
 </div>
