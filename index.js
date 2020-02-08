@@ -29,7 +29,8 @@ const DB = 'mongodb://127.0.0.1/database';
         }).catch((err) => {
             console.error("Erro em mongodb: " + err);
         });
-
+       mongoose.set('useFindAndModify', false);
+       mongoose.set('useUnifiedTopology', true);
 
 /*
  *  ARQUIVOS ESTÁTICOS
@@ -43,7 +44,8 @@ const DB = 'mongodb://127.0.0.1/database';
 
 
 
+let port = 3000 || process.env.PORT;
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log("Servidor iniciado!")
 })

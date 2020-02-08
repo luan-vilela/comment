@@ -1,22 +1,5 @@
-<div class="navbar navbar-expand-sm justify-content-between navbar-dark" style="background-color: #27A745;">
-    <span class="navbar-brand ml-4 mb-0 h1">
-      <i class="fa fa-comments-o fa-lg" aria-hidden="true"></i>
-      Comment
-    </span>
-
-    <div class="nav-item mr-4">
-      <ul class="navbar-nav text-left mr-auto mt-2 mt-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="">About</a>
-        </li>
-      </ul>
-    </div>
-</div>
-
-
-<div class="container text-center">
   <div class="time" title="Aguarde o tempo terminar para poder comentar">
-    <h1 class="display-1 my-5" id="time">3</h1>
+    <h1 class="display-1 my-5" id="time">15</h1>
   </div>
 
 
@@ -24,37 +7,35 @@
     <p>{{result.comment}}</p>
     <div class="flex">
       <div class="float-left mx-3">
+        {{!-- gera input hidden com id para fazer comentários e liked --}}
+        <input type="hidden" id="id" name="id" value="{{result.id}}">
         <input type="radio" name="like" id="like" value="1" style="display: none;" onclick="btnLike()">
         <label for="like" id="lblike"  class="text-dark mx-2" style="cursor: pointer;">
-          <i class="fa fa-thumbs-o-up" for="like" aria-hidden="true"></i> 1 
+          <i class="fa fa-thumbs-o-up" for="like" aria-hidden="true"></i> {{result.like}} 
         </label>
         <input type="radio" name="like" id="dislike" value="-1" style="display: none;" onclick="btnDisLike()">
         <label for="dislike" id="lbdislike" class="text-dark" style="cursor: pointer;">
-          <i class="fa fa-thumbs-o-down" aria-hidden="true"></i> 2
+          <i class="fa fa-thumbs-o-down" aria-hidden="true"></i> {{result.dislike}} 
         </label>
       </div>
 
       <div class="float-right mx-2">
-        <label for="checkWhisper" class="text-dark" style="cursor: pointer;" title="Open whispers">12 whisper</label>
+        <label for="checkWhisper" class="text-success" style="cursor: pointer;" title="Open whispers">{{result.countWhisper}} whisper</label>
         <input type="checkbox" id="checkWhisper" style="display: none;" onclick="checkWhisper()">   
       </div>
     </div>
 
     <div class="card mt-5 text-left" id="allComments" style="display: none;">
-      <span class="text-muted mx-2 my-2">Ver mais 9</span>
-
-      <ul>
-        <li>1: Comentário 1</li>
-        <li>1: Comentário Comentário Comentário Comentário 1</li>
-        <li>1: Comentário Comentário Comentário Comentário Comentário Comentário ComentárioComentárioComentário Comentário Comentário Comentário Comentário Comentário Comentário Comentário 1</li>
-        <li>1: Comentário 1</li>
-        <li>1: Comentário 1</li>
-        <li>1: Comentário 1</li>
+      {{!-- <span class="text-muted mx-2 my-2">Ver mais 9</span> --}}
+      <ul id="ulWhisper" class="list-group overflow-auto" style="height: 200px;">
+        {{#each result.whisper}}
+        <li class="list-group-item">{{this}}</li>
+        {{/each}}
       </ul>
       
       <div class="card-footer">
         <div class="input-group my-0">
-          <input class="form-control" type="text" placeholder=" Add a whisper...">
+          <input class="form-control" type="text" id="whisper"  name="whisper" placeholder=" Add a whisper..." onchange="whisper()">
         </div>
       </div>
       
@@ -69,12 +50,8 @@
       </div> 
       
       <div class="form-group" >
-        <a id="btnComment" class="btn btn-success btn-lg disabled" role="button" aria-disabled="true" onclick="submit()">Comment</a>
+        <a id="btnComment" class="btn btn-success btn-lg disabled" role="button" aria-disabled="true" onclick="submit()" style="cursor: pointer;">Comment</a>
       </div>
     </form>
   </div>
 
-  <div class="text-muted mt-5" style="">
-    © Comment 2020
-  </div>
-</div>

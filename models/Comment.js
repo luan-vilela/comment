@@ -9,8 +9,14 @@ const Comment = new Schema({
     },
     ip: String,
     whisper: [],
-    like: Number,
-    dislike: Number
+    like: {
+        type: Number,
+        default: 0
+    },
+    dislike: {
+        type: Number,
+        default: 0
+    }
 });
 
 mongoose.model('Comment', Comment);
