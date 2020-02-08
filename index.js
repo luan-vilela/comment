@@ -3,11 +3,12 @@ const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const router = require('./router/router');
+const db = require('./config/db');
 const app = express();
 
 
 // Configurações constantes
-const DB = 'mongodb://127.0.0.1/database';
+const DB = db.mongoURI;
 
 
 
@@ -44,7 +45,7 @@ const DB = 'mongodb://127.0.0.1/database';
 
 
 
-let port = 3000 || process.env.PORT;
+let port = process.env.PORT ||3000;
 
 app.listen(port, () => {
     console.log("Servidor iniciado!")
