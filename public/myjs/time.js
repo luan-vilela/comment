@@ -8,7 +8,7 @@ let newWhisper = document.getElementById('whisper');
 function whisper(){
     
     server('whisper', newWhisper.value);
-    let newLi = '<li class="list-group-item">'+newWhisper.value+'</li>';
+    let newLi = '<li class="whispers-you badge">'+newWhisper.value+'</li>';
     document.getElementById('ulWhisper').innerHTML = document.getElementById('ulWhisper').innerHTML + newLi;
 
     newWhisper.value = '';
@@ -66,7 +66,7 @@ function server(tipo, whispering)
 {
     let id = document.getElementById('id').value;
     xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("GET","http://localhost:3000/statuswhisper/"+tipo+"?id="+id+"&whisper="+whispering, true);
+    xmlhttp.open("GET","https://yourcomment.herokuapp.com/statuswhisper/"+tipo+"?id="+id+"&whisper="+whispering, true);
     xmlhttp.onreadystatechange=() => {
         if (xmlhttp.readyState==4 && xmlhttp.status==200){
           string=xmlhttp.responseText;

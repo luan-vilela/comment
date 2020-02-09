@@ -7,6 +7,37 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        ul{
+            list-style-type: none;
+            color: white;
+            font-size: 14pt;
+        }
+        .whispers{
+            display: block;
+            text-align: left;
+            padding: 10px;
+            background-color:rgb(46, 212, 85);
+            min-width: 10%;
+            max-width: 50%;
+            margin-left: 1%;
+            margin-top: 3px;
+        }
+        .whispers:nth-child(even){
+            text-align: right;
+            background-color: rgb(40, 164, 196);
+            margin-left: 49%;
+        }
+        .whispers-you{
+            margin-top: 3px;
+            text-align: center;
+            padding: 10px;
+            background-color: rgb(16, 19, 209);
+            margin-left: 1%;
+
+        }
+
+    </style>
 </head>
     <body>
         {{>_nav}}
